@@ -11,6 +11,12 @@ router.get("/login.ejs", (req, res, next) => {
   res.render("login");
 });
 
+/* GET signup page */
+router.get("/signup.ejs", (req, res, next) => {
+  res.render("signup");
+});
+
+
 /* GET assembly page */
 router.get("/assembly", (req, res, next) => {
   res.render("assembly");
