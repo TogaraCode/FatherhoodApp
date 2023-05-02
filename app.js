@@ -5,9 +5,11 @@ require('dotenv').config()
 
 // ℹ️ Connects to the database
 require('./db')
+
 const expressLayouts = require('express-ejs-layouts');
 
 const path = require('path');
+
 // Handles http requests (express is node js framework)
 // https://www.npmjs.com/package/express
 const express = require('express')
