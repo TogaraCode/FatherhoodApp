@@ -1,9 +1,43 @@
 
 // routes/auth.routes.js
 // ... imports and both signup routes stay untouched
+const { Router } = require('express');
+const router = new Router();
+const User = require('../models/User.model');
 
+const bcryptjs = require('bcryptjs');
+const saltRounds = 10;
 //////////// L O G I N ///////////
+router.get('/signup', (req, res) => res.render('auth/signup'));
 
+router.post('/signup', (req, res, next) => {
+    // console.log("The form data: ", req.body);
+   
+    const { username, email, password } = req.body;
+   
+    bcryptjs
+      .genSalt(saltRounds)
+      .then(salt => bcryptjs.hash(password, salt))
+      .then(hashedPassword => {
+        return User.create({
+          // username: username
+          username,
+          email,
+          // passwordHash => this is the key from the User model
+          //     ^
+          //     |            |--> this is placeholder (how we named returning value from the previous method (.hash()))
+          passwordHash: hashedPassword
+        });
+      })
+      .then(userFromDB => {
+        console.log('Newly created user is: ', userFromDB);
+        res.redirect('/userProfile');
+      })
+      .catch(error => next(error));
+  });
+  
+
+  module.exports = router;
 // GET route ==> to display the login form to users
 router.get('/login', (req, res) => res.render('auth/login'));
 
@@ -24,7 +58,7 @@ router.post('/login', (req, res, next) => {
           res.redirect('/');
         });
       });
-      
+
     User.findOne({ email })
       .then(user => {
         if (!user) {
@@ -38,3 +72,5 @@ router.post('/login', (req, res, next) => {
       })
       .catch(error => next(error));
   });
+
+  module.exports = router;

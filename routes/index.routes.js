@@ -26,4 +26,8 @@ router.get("/assembly", (req, res, next) => {
 router.get("/profile", (req, res, next) => {
   res.render("profile");
 });
+
+router.get('/userProfile', (req, res) => res.render('users/user-profile'));
+
+
 module.exports = router;
