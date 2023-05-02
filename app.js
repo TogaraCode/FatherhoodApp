@@ -21,6 +21,7 @@ const projectName = 'Fatherhood'
 app.locals.appTitle = `${capitalize(projectName)} created by Togara`
 
 // 👇 Start handling routes here
+
 const indexRoutes = require('./routes/index.routes')
 app.use('/', indexRoutes)
 
