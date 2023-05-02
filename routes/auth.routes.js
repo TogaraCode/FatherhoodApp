@@ -9,6 +9,7 @@ router.get('/login', (req, res) => res.render('auth/login'));
 
 // userProfile route and the module export stay unchanged
 router.post('/login', (req, res, next) => {
+    console.log('SESSION =====> ', req.session);
     const { email, password } = req.body;
    
     if (email === '' || password === '') {
