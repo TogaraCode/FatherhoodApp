@@ -4,20 +4,21 @@
 const { Router } = require('express');
 const router = new Router();
 const User = require('../models/User.model');
-
-const bcryptjs = require('bcryptjs');
+const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
+const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const express = require('express')
 //////////// L O G I N ///////////
 router.get('/signup', (req, res) => res.render('auth/signup'));
 
 router.post('/signup', (req, res, next) => {
-    // console.log("The form data: ", req.body);
+     console.log("The form data: ", req.body);
    
     const { username, email, password } = req.body;
    
-    bcryptjs
+    bcrypt
       .genSalt(saltRounds)
-      .then(salt => bcryptjs.hash(password, salt))
+      .then(salt => bcrypt.hash(password, salt))
       .then(hashedPassword => {
         return User.create({
           // username: username
@@ -26,20 +27,20 @@ router.post('/signup', (req, res, next) => {
           // passwordHash => this is the key from the User model
           //     ^
           //     |            |--> this is placeholder (how we named returning value from the previous method (.hash()))
-          passwordHash: hashedPassword
+          password: hashedPassword
         });
       })
       .then(userFromDB => {
         console.log('Newly created user is: ', userFromDB);
-        res.redirect('/userProfile');
+        res.redirect('/auth/login');
       })
       .catch(error => next(error));
   });
   
 
-  module.exports = router;
+ 
 // GET route ==> to display the login form to users
-router.get('/login', (req, res) => res.render('auth/login'));
+router.get('/login',isLoggedOut, (req, res) => res.render('auth/login'));
 
 // userProfile route and the module export stay unchanged
 router.post('/login', (req, res, next) => {
@@ -52,25 +53,28 @@ router.post('/login', (req, res, next) => {
       });
       return;
     }
-    router.post('/logout', (req, res, next) => {
-        req.session.destroy(err => {
-          if (err) next(err);
-          res.redirect('/');
-        });
-      });
+  
 
     User.findOne({ email })
       .then(user => {
         if (!user) {
           res.render('auth/login', { errorMessage: 'Email is not registered. Try with other email.' });
           return;
-        } else if (bcryptjs.compareSync(password, user.passwordHash)) {
-          res.render('users/user-profile', { user });
+        } else if (bcrypt.compareSync(password, user.password)) {
+            req.session.user = user.username
+          res.redirect(`/${user.username}`);
         } else {
           res.render('auth/login', { errorMessage: 'Incorrect password.' });
         }
       })
       .catch(error => next(error));
+
+  });
+  router.post('/logout', (req, res, next) => {
+    req.session.destroy(err => {
+      if (err) next(err);
+      res.redirect('/');
+    });
   });
 
   module.exports = router;

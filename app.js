@@ -21,7 +21,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(expressLayouts);
 
 app.use(express.static(path.join(__dirname, 'public')));
-
+require('./config')(app);
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require('./config/session.config')(app);
 
@@ -35,6 +35,11 @@ app.locals.appTitle = `${capitalize(projectName)} created by Togara`
 
 const indexRoutes = require('./routes/index.routes')
 app.use('/', indexRoutes)
+
+const authRoutes = require('./routes/auth.routes')
+app.use('/auth', authRoutes)
+
+
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app)

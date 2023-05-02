@@ -1,5 +1,26 @@
 
 
-  <form action="/login" method="POST">
+
+<div id="form">
+  <h2>Login</h2>
+
+  <form action="/auth/login" method="POST">
+
+    <label> Email
+      <input type="email" name="email" placeholder="rockstar@ironhack.com" />
+    </label>
+
+    <label>Password
+      <input type="password" name="password" placeholder="********" />
+    </label>
+
+    <button type="submit">Login</button>
+
+    <% if(typeof errorMessage !== "undefined") { %>
+      <p class="error"><%= errorMessage %></p>
+    <% } %>
+  </form>
+</div>
+
 
 

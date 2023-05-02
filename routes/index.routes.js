@@ -1,20 +1,14 @@
 const express = require('express');
 const router = express.Router();
+const User = require('../models/User.model')
+
 
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-/* GET login page */
-router.get("/login", (req, res, next) => {
-  res.render("login");
-});
 
-/* GET signup page */
-router.get("/signup", (req, res, next) => {
-  res.render("signup");
-});
 
 
 /* GET assembly page */
@@ -23,11 +17,15 @@ router.get("/assembly", (req, res, next) => {
 });
 
 /* GET profile page */
-router.get("/profile", (req, res, next) => {
-  res.render("profile");
-});
-
-router.get('/userProfile', (req, res) => res.render('users/user-profile'));
+router.get('/:username', async (req, res) => {
+  try{
+    const user = await User.findOne({username:req.params.username})
+    res.render('users/user-profile',{user});
+  }
+  catch(error) {
+    console.log(error)
+  }
+  })
 
 
 module.exports = router;
