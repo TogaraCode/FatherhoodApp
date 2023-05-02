@@ -18,7 +18,13 @@ router.post('/login', (req, res, next) => {
       });
       return;
     }
-   
+    router.post('/logout', (req, res, next) => {
+        req.session.destroy(err => {
+          if (err) next(err);
+          res.redirect('/');
+        });
+      });
+      
     User.findOne({ email })
       .then(user => {
         if (!user) {
