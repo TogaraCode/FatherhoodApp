@@ -7,12 +7,12 @@ router.get("/", (req, res, next) => {
 });
 
 /* GET login page */
-router.get("/login.ejs", (req, res, next) => {
+router.get("/login", (req, res, next) => {
   res.render("login");
 });
 
 /* GET signup page */
-router.get("/signup.ejs", (req, res, next) => {
+router.get("/signup", (req, res, next) => {
   res.render("signup");
 });
 
