@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { isLoggedIn } = require('../middleware/route-guard');
 const User = require('../models/User.model')
 const Message = require('../models/message.ejs');
 
@@ -25,9 +26,14 @@ router.post('/assembly', async (req, res) => {
 
 
 /* GET assembly page */
-router.get("/assembly", (req, res, next) => {
-  res.render("assembly");
+router.get('/assembly', isLoggedIn, (req, res) => {
+  const { currentUser } = req.session;
+  if (!currentUser) {
+    return res.render('messages', { errorMessage: 'Still no logged in user, sorry!' });
+  }
+  res.render('messages', { username: currentUser });
 });
+
 
 /* GET profile page */
 router.get('/:username', async (req, res) => {
