@@ -1,14 +1,27 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User.model')
-
+const Message = require('../models/message.ejs');
 
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
 });
 
+/*Mesggae routes*/
 
+router.get('/assembly', (req, res) => {
+  res.render('assembly');
+});
+
+router.post('/assembly', async (req, res) => {
+  const message = new Message({
+    author: req.user._id,
+    content: req.body.content
+  });
+  await message.save();
+  res.redirect('/assembly');
+});
 
 
 /* GET assembly page */

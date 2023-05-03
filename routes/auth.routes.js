@@ -77,4 +77,26 @@ router.post('/login', (req, res, next) => {
     });
   });
 
+
+  router.get('/assembly', isLoggedIn, (req, res) => {
+    res.render('messages', { username: req.session.user });
+  });
+  
+  router.post('/assembly', isLoggedIn, (req, res, next) => {
+    const { message } = req.body;
+    const { user } = req.session;
+  
+    Message.create({
+      author: user,
+      text: message
+    })
+    .then(() => {
+      res.redirect('/assembly');
+    })
+    .catch(error => {
+      next(error);
+    });
+  });
+  
+  
   module.exports = router;
