@@ -2,6 +2,7 @@ const { Router } = require('express');
 const router = new Router();
 const User = require('../models/User.model');
 const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
+
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const express = require('express')
