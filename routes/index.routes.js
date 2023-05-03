@@ -37,6 +37,7 @@ router.get('/assembly', isLoggedIn, (req, res) => {
 
 /* GET profile page */
 router.get('/:username', async (req, res) => {
+  console.log(req.session)
   try{
     const user = await User.findOne({username:req.params.username})
     res.render('users/user-profile',{user});

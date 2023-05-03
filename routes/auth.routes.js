@@ -1,6 +1,3 @@
-
-// routes/auth.routes.js
-// ... imports and both signup routes stay untouched
 const { Router } = require('express');
 const router = new Router();
 const User = require('../models/User.model');
@@ -61,7 +58,7 @@ router.post('/login', (req, res, next) => {
           res.render('auth/login', { errorMessage: 'Email is not registered. Try with other email.' });
           return;
         } else if (bcrypt.compareSync(password, user.password)) {
-            req.session.user = user.username
+            req.session.currentUser = user.username
           res.redirect(`/${user.username}`);
         } else {
           res.render('auth/login', { errorMessage: 'Incorrect password.' });
@@ -79,7 +76,11 @@ router.post('/login', (req, res, next) => {
 
 
   router.get('/assembly', isLoggedIn, (req, res) => {
-    res.render('messages', { username: req.session.user });
+    const { currentUser } = req.session;
+    if (!currentUser) {
+      return res.redirect('/login'); // Redirect to the login page if the user is not logged in
+    }
+    res.render('messages', { username: currentUser });
   });
   
   router.post('/assembly', isLoggedIn, (req, res, next) => {
