@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { isLoggedIn } = require('../middleware/route-guard');
 const User = require('../models/User.model')
-const Message = require('../models/message.ejs');
+const Message = require('../models/message');
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -11,17 +11,26 @@ router.get("/", (req, res, next) => {
 
 /*Mesggae routes*/
 
-router.get('/assembly', (req, res) => {
-  res.render('assembly');
+router.get('/assembly', async (req, res)  => {
+try {
+  const allMessages = await Message.find().populate('author')
+  res.render('assembly',{allMessages});
+}
+catch (error) {
+  console.log(error)
+}
 });
 
 router.post('/assembly', async (req, res) => {
-  const message = new Message({
-    author: req.user._id,
-    content: req.body.content
-  });
-  await message.save();
+  try {
+    const message = await Message.create({
+      author: req.session.currentUser.username,
+      content: req.body.message  });
+      /* await message.save();*/
   res.redirect('/assembly');
+  } catch (error) {
+    console.log(error)
+  }
 });
 
 

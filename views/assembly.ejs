@@ -1,5 +1,18 @@
 <h1>Assembly</h1>
 <p>Welcome to the chat room, !</p>
+
+<ul>
+ <%allMessages.forEach(message => { %> 
+<li>
+   
+    <span>
+        <%= message.content%>
+    </span>
+</li>
+ <% }) %>
+
+</ul>
+
 <form method="post" action="/assembly">
   <label for="message">Message:</label>
   <textarea id="message" name="message"></textarea>
