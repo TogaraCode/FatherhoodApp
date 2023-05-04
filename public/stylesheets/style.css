@@ -65,6 +65,7 @@ p {
 }
 
 .rightNav {
+  display: flex;
   flex-direction: row;
   object-fit: contain;
   align-items: center;
@@ -103,5 +104,11 @@ p {
 .signupFormStyle{
   color: #ffcf40;
   background-color: #18206f;
+  padding-bottom: 10px;
 }
 
+.LoginFormStyle{
+  color: #ffcf40;
+  background-color: #18206f;
+  padding-bottom: 10px;
+}
