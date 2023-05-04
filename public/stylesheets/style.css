@@ -231,3 +231,10 @@ p {
 
   
 }
+
+.indexText{
+  color: #ffcf40;
+  font-weight: 900;
+  padding:10px ;
+  background-color: #18206f;
+}
