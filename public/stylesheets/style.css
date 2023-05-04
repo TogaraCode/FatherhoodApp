@@ -112,7 +112,7 @@ p {
 .signupHeader{
   color: #ffcf40;
   font-weight: 900;
-  padding:5px ;
+  padding:10px ;
 }
 
 .signupFormStyle{
@@ -128,7 +128,7 @@ p {
 }
 
 .SignupFormInputUsername{
-  padding: 5px;
+  padding: 10px;
 }
 
 .SignupFormInputEmail{
