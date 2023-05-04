@@ -3,7 +3,6 @@ body {
   background-repeat: no-repeat;
   padding: 50px;
   background-attachment: fixed;
-
   background-size: cover;
   background-size: 100% 100%;
 }
@@ -164,4 +163,37 @@ p {
   margin-left:10px;
   margin-top:5px;
   background-color: #ffcf40;
+}
+
+.useProfileHeader{
+  color: #ffcf40;
+  font-weight: 900;
+  padding:10px ;
+  background-color: #18206f;
+}
+.reloadPageBtn{
+  display: flex;
+  background-color: #18206f;
+  text-decoration: none;
+  border: 2px solid #ffcf40;
+  padding: 2px;
+  text-decoration: none;
+  margin-top:5px;
+}
+
+.goToAssemblyBtn{
+  display: flex;
+  background-color: #18206f;
+  text-decoration: none;
+  border: 2px solid #ffcf40;
+  padding: 2px;
+  text-decoration: none;
+  margin-top:5px;
+}
+.reloadPageyBtn1{
+  text-decoration: none;
+}
+
+.goToAssemblyBtn2{
+  text-decoration: none;
 }
