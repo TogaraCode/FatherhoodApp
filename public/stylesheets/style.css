@@ -197,3 +197,37 @@ p {
 .goToAssemblyBtn2{
   text-decoration: none;
 }
+
+.assemblyHeader{
+  color: #ffcf40;
+  font-weight: 900;
+  padding:10px ;
+  background-color: #18206f;
+}
+
+.assemblyMessages{
+  color: #ffcf40;
+  background-color: #18206f;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  margin-top:15px;
+}
+
+.assemblycBtnSend{
+  display: flex;
+  background-color: #18206f;
+  text-decoration: none;
+  border: 2px solid #ffcf40;
+  padding: 10px;
+  text-decoration: none;
+  margin-top:5px;
+  color: #ffcf40;
+}
+
+.assemblyMessageText{
+  color: #ffcf40;
+  background-color: #18206f;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+}

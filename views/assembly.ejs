@@ -1,20 +1,20 @@
-<h1>Assembly</h1>
+<h1 class="assemblyHeader">Assembly</h1>
 <p>Welcome to the chat room, !</p>
 
-<ul>
+<ul class="assemblyMessages">
  <%allMessages.forEach(message => { %> 
-<li>
+<ul>
    
     <span>
         <%= message.content%>
     </span>
-</li>
+</ul>
  <% }) %>
 
 </ul>
 
 <form method="post" action="/assembly">
-  <label for="message">Message:</label>
+  <label class="assemblyMessageText" for="message">Message:</label>
   <textarea id="message" name="message"></textarea>
-  <button type="submit">Send</button>
+  <button class="assemblycBtnSend" type="submit">Send</button>
 </form>
