@@ -145,3 +145,22 @@ p {
 .SignupFormInputPassword{
   padding: 5px;
 }
+.signupHeader{
+  color: #ffcf40;
+  font-weight: 900;
+  padding:10px ;
+}
+.loginFormInputEmail{
+  padding: 5px;
+}
+
+.loginFormInputPassword{
+  padding: 5px;
+}
+
+.LoginFormBtn{
+  padding: 5px;
+  margin-left:10px;
+  margin-top:5px;
+  background-color: #ffcf40;
+}
