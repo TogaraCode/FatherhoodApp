@@ -66,6 +66,7 @@ p {
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
+  
 }
 
 .rightNav {
@@ -84,8 +85,8 @@ p {
   display: flex;
   color: #ffcf40;
   background-color: red;
-  border: 1px solid #ffcf40;
-  padding: 2px;
+  border: 2px solid #ffcf40;
+  padding: 3px;
   margin-bottom: 0px;
   
 }
@@ -94,7 +95,7 @@ p {
   display: flex;
   background-color: #18206f;
   text-decoration: none;
-  border: 1px solid #ffcf40;
+  border: 2px solid #ffcf40;
   padding: 2px;
 }
 
@@ -102,7 +103,7 @@ p {
   display: flex;
   text-decoration: none;
   background-color: #18206f;
-  border: 1px solid #ffcf40;
+  border: 2px solid #ffcf40;
   padding: 2px;
   margin-left: 10px;
   margin-right: 10px;
@@ -117,11 +118,29 @@ p {
 .signupFormStyle{
   color: #ffcf40;
   background-color: #18206f;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 
 .LoginFormStyle{
   color: #ffcf40;
   background-color: #18206f;
   padding-bottom: 10px;
+}
+
+.SignupFormInputUsername{
+  padding: 5px;
+}
+
+.SignupFormInputEmail{
+  padding: 5px;
+}
+
+.SignupFormCreateAccBtn{
+  padding: 5px;
+  margin-left:15px;
+  background-color: #ffcf40;
+}
+
+.SignupFormInputPassword{
+  padding: 5px;
 }
