@@ -31,15 +31,21 @@ p {
   position: sticky;
   top: 0;
   z-index: 100;
+  
 }
 
 .titleName{
-  color: red;
+  color: #ffcf40;
+  font-weight: 900;
+  text-decoration: none;
+  font-size: 35px;
+  font-family: 'Times New Roman', Times, serif;
+
 }
 
 .header__logo{
-  height: 30px;
-  width: 30px;
+  height: 50px;
+  width: 50px;
 }
 
 .leftNav{
@@ -50,16 +56,52 @@ p {
   margin: 0 20px;
   margin-top: 18px;
   margin-bottom: 18px;
+  
 }
 
 .middleNav {
-  display: flex;
-  flex: 1;
+  border: none;
+  width: 100%;
 }
 
 .rightNav {
-  display: flex;
-  justify-content: space-evenly;
-  display: flex;
+  flex-direction: row;
+  object-fit: contain;
   align-items: center;
+  margin: 0 20px;
+  text-decoration: none;
 }
+
+.logoutButton{
+  display: flex;
+  color: #ffcf40;
+  background-color: red;
+  padding: 2px;
+  margin-bottom: 0px;
+  
+}
+
+.signUpButton{
+  display: flex;
+  background-color: #18206f;
+  text-decoration: none;
+  border: 1px solid #ffcf40;
+}
+
+.LoginButton {
+  display: flex;
+  text-decoration: none;
+  background-color: #18206f;
+  border: 2px solid #ffcf40;
+}
+
+.signupHeader{
+  color: #ffcf40;
+  font-weight: 900;
+}
+
+.signupFormStyle{
+  color: #ffcf40;
+  background-color: #18206f;
+}
+
