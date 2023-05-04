@@ -33,6 +33,7 @@ p {
   position: sticky;
   top: 0;
   z-index: 100;
+  border: 2px solid #ffcf40;
 }
 
 .titleName{
