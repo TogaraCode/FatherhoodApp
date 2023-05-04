@@ -218,7 +218,7 @@ p {
   background-color: #18206f;
   text-decoration: none;
   border: 2px solid #ffcf40;
-  padding: 10px;
+  padding: 5px;
   text-decoration: none;
   margin-top:5px;
   color: #ffcf40;
@@ -227,7 +227,7 @@ p {
 .assemblyMessageText{
   color: #ffcf40;
   background-color: #18206f;
-  text-align: center;
-  display: inline-block;
-  vertical-align: middle;
+  align-items: center;
+
+  
 }
