@@ -25,13 +25,14 @@ p {
 }
 
 .header {
-  background-color: #18206f;
   display: flex;
+ 
+  justify-content: space-between;
+  background-color: #18206f;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 100;
-  
 }
 
 .titleName{
@@ -46,6 +47,7 @@ p {
 .header__logo{
   height: 50px;
   width: 50px;
+  border: 3px solid #ffcf40;
 }
 
 .leftNav{
@@ -62,6 +64,8 @@ p {
 .middleNav {
   border: none;
   width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .rightNav {
@@ -69,14 +73,18 @@ p {
   flex-direction: row;
   object-fit: contain;
   align-items: center;
-  margin: 0 20px;
+ 
   text-decoration: none;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .logoutButton{
   display: flex;
   color: #ffcf40;
   background-color: red;
+  border: 1px solid #ffcf40;
   padding: 2px;
   margin-bottom: 0px;
   
@@ -87,24 +95,29 @@ p {
   background-color: #18206f;
   text-decoration: none;
   border: 1px solid #ffcf40;
+  padding: 2px;
 }
 
 .LoginButton {
   display: flex;
   text-decoration: none;
   background-color: #18206f;
-  border: 2px solid #ffcf40;
+  border: 1px solid #ffcf40;
+  padding: 2px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .signupHeader{
   color: #ffcf40;
   font-weight: 900;
+  padding:5px ;
 }
 
 .signupFormStyle{
   color: #ffcf40;
   background-color: #18206f;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 .LoginFormStyle{
